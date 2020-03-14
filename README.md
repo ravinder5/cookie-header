@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/ravinder5/cookie-header.svg?branch=master)](https://travis-ci.com/ravinder5/cookie-header)
+[![Build Status](https://travis-ci.com/ravinder5/cookie-header.svg?branch=master)](https://travis-ci.com/github/ravinder5/cookie-header)
 # cookie-header
 Exposes static methods to create Cookie header with SameSite attribute support
 
