@@ -1,0 +1,5 @@
+language: java
+
+build:
+  commands:
+    - ./gradlew clean build

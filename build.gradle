@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.bandi.http.cookie'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile (
+			'javax.servlet:javax.servlet-api:4.0.1',
+			'org.apache.commons:commons-lang3:3.8.1',
+			'org.apache.commons:commons-collections4:4.1'
+	)
+}
+
+test {
+	useJUnitPlatform()
+}
