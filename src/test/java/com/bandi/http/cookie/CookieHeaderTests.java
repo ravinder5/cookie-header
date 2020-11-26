@@ -15,8 +15,8 @@ public class CookieHeaderTests {
 		jsession.setSecure(true);
 		jsession.setMaxAge(5000);
 		
-		String generatedCookie = CookieHeader.createSetCookieHeader(jsession, SameSite.NONE);
-		Assert.assertEquals("COOKIE=testvalue; Domain=foo.foo.org; Path=/foo/config; SameSite=None; Secure; Max-Age=5000; ",generatedCookie);
+		String generatedCookie = CookieHelper.createSetCookieHeader(jsession, SameSite.NONE);
+		Assert.assertEquals("COOKIE=testvalue; Domain=foo.foo.org; Path=/foo/config; SameSite=None; Secure; Max-Age=5000;",generatedCookie);
 	}
 	
 	@Test
@@ -24,7 +24,7 @@ public class CookieHeaderTests {
 		Cookie route = new Cookie("ROUTEID",".serverid");
 		route.setPath("/");
 		
-		String generatedCookie = CookieHeader.createSetCookieHeader(route, null);
+		String generatedCookie = CookieHelper.createSetCookieHeader(route, null);
 		Assert.assertEquals("ROUTEID=.serverid; Path=/; Max-Age=-1;", generatedCookie);
 	}
 	
@@ -34,8 +34,15 @@ public class CookieHeaderTests {
 		Cookie route = new Cookie("JSESSIONID","someID.2345SASDFASF");
 		route.setPath("/fooserver/home");
 		
-		String generatedCookie = CookieHeader.createSetCookieHeader(route, null);
+		String generatedCookie = CookieHelper.createSetCookieHeader(route, null);
 		Assert.assertEquals("JSESSIONID=someID.2345SASDFASF; Path=/fooserver/home; Max-Age=-1;", generatedCookie);
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testNullParameters() {
+		Cookie cookie = null;
+		CookieHelper.createSetCookieHeader(cookie, null);
+		Assert.fail();
 	}
 	
 	//TODO the other methods should also be tested...
