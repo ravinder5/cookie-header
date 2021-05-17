@@ -102,7 +102,7 @@ public final class CookieHelper {
 	 * 
 	 * @param cookie       to use. Must not be null.
 	 * @param sameSite     attribute of the cookie. Can be null. In this case browsers treat it as Lax.
-	 * @return
+	 * @return a string with key value pairs used in a HttpCookie with ; delimiter
 	 */
 	public static String createSetCookieHeader(Cookie cookie, SameSite sameSite) {
 
