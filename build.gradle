@@ -19,9 +19,10 @@ repositories {
 dependencies {
 	compile (
 			'javax.servlet:javax.servlet-api:4.0.1',
-			'org.apache.commons:commons-lang3:3.8.1',
-			'org.apache.commons:commons-collections4:4.1'
 	)
+	
+	testCompile "junit:junit:4.13.1"
+	testRuntimeOnly "org.junit.vintage:junit-vintage-engine:4.12.3"
 }
 
 test {
